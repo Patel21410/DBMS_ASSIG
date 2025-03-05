@@ -1,0 +1,390 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 Enter password: *******\par
+Welcome to the MySQL monitor.  Commands end with ; or \\g.\par
+Your MySQL connection id is 8\par
+Server version: 8.0.36 MySQL Community Server - GPL\par
+\par
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.\par
+\par
+Oracle is a registered trademark of Oracle Corporation and/or its\par
+affiliates. Other names may be trademarks of their respective\par
+owners.\par
+\par
+Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\par
+\par
+mysql> create database ifnot apdb\par
+    -> ;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'apdb' at line 1\par
+mysql> create database if not apdb;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'apdb' at line 1\par
+mysql> create database if not exists apdb;\par
+Query OK, 1 row affected (1.00 sec)\par
+\par
+mysql> use apdb\par
+Database changed\par
+mysql> show database\par
+    -> ;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1\par
+mysql> show table\par
+    -> ;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1\par
+mysql> show databases;\par
++--------------------+\par
+| Database           |\par
++--------------------+\par
+| apdb               |\par
+| information_schema |\par
+| mysql              |\par
+| performance_schema |\par
+| sakila             |\par
+| sys                |\par
+| world              |\par
++--------------------+\par
+7 rows in set (3.69 sec)\par
+\par
+mysql> use apdb\par
+Database changed\par
+mysql> source C:\\Users\\dac\\Downloads\\suppliercustomer.sql\par
+Query OK, 0 rows affected (1.47 sec)\par
+\par
+Query OK, 1 row affected (0.26 sec)\par
+\par
+Query OK, 1 row affected (0.08 sec)\par
+\par
+Query OK, 1 row affected (0.12 sec)\par
+\par
+Query OK, 1 row affected (0.08 sec)\par
+\par
+Query OK, 1 row affected (0.08 sec)\par
+\par
+Query OK, 1 row affected (0.04 sec)\par
+\par
+Query OK, 1 row affected (0.04 sec)\par
+\par
+Query OK, 1 row affected (0.04 sec)\par
+\par
+Query OK, 1 row affected (0.08 sec)\par
+\par
+Query OK, 0 rows affected (0.40 sec)\par
+\par
+Query OK, 0 rows affected (0.37 sec)\par
+\par
+Query OK, 1 row affected (0.04 sec)\par
+\par
+Query OK, 1 row affected (0.08 sec)\par
+\par
+Query OK, 1 row affected (0.06 sec)\par
+\par
+Query OK, 1 row affected (0.06 sec)\par
+\par
+Query OK, 1 row affected (0.06 sec)\par
+\par
+Query OK, 1 row affected (0.05 sec)\par
+\par
+Query OK, 1 row affected (0.18 sec)\par
+\par
+Query OK, 1 row affected (0.09 sec)\par
+\par
+Query OK, 1 row affected (0.12 sec)\par
+\par
+Query OK, 1 row affected (0.07 sec)\par
+\par
+Query OK, 1 row affected (0.05 sec)\par
+\par
+mysql> show table\par
+    -> ;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1\par
+mysql> show table;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1\par
+mysql> desc table;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1\par
+mysql> desc emp;\par
+ERROR 1146 (42S02): Table 'apdb.emp' doesn't exist\par
+mysql> show database;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1\par
+mysql> desc suppliers;\par
++---------------+----------+------+-----+---------+-------+\par
+| Field         | Type     | Null | Key | Default | Extra |\par
++---------------+----------+------+-----+---------+-------+\par
+| supplier_id   | int      | NO   | PRI | NULL    |       |\par
+| supplier_name | char(50) | NO   |     | NULL    |       |\par
+| city          | char(50) | YES  |     | NULL    |       |\par
+| state         | char(25) | YES  |     | NULL    |       |\par
++---------------+----------+------+-----+---------+-------+\par
+4 rows in set (0.10 sec)\par
+\par
+mysql> select * from suppliers;\par
++-------------+-------------------+------------------+------------+\par
+| supplier_id | supplier_name     | city             | state      |\par
++-------------+-------------------+------------------+------------+\par
+|         100 | Microsoft         | Redmond          | Washington |\par
+|         200 | Google            | Mountain View    | California |\par
+|         300 | Oracle            | Redwood City     | California |\par
+|         400 | Kimberly-Clark    | Irving           | Texas      |\par
+|         500 | Tyson Foods       | Springdale       | Arkansas   |\par
+|         600 | SC Johnson        | Racine           | Wisconsin  |\par
+|         700 | Dole Food Company | Westlake Village | California |\par
+|         800 | Flowers Foods     | Thomasville      | Georgia    |\par
+|         900 | Electronic Arts   | Redwood City     | California |\par
++-------------+-------------------+------------------+------------+\par
+9 rows in set (0.01 sec)\par
+\par
+mysql> show suppliers;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'suppliers' at line 1\par
+mysql> select * from suppliers;\par
++-------------+-------------------+------------------+------------+\par
+| supplier_id | supplier_name     | city             | state      |\par
++-------------+-------------------+------------------+------------+\par
+|         100 | Microsoft         | Redmond          | Washington |\par
+|         200 | Google            | Mountain View    | California |\par
+|         300 | Oracle            | Redwood City     | California |\par
+|         400 | Kimberly-Clark    | Irving           | Texas      |\par
+|         500 | Tyson Foods       | Springdale       | Arkansas   |\par
+|         600 | SC Johnson        | Racine           | Wisconsin  |\par
+|         700 | Dole Food Company | Westlake Village | California |\par
+|         800 | Flowers Foods     | Thomasville      | Georgia    |\par
+|         900 | Electronic Arts   | Redwood City     | California |\par
++-------------+-------------------+------------------+------------+\par
+9 rows in set (0.00 sec)\par
+\par
+mysql> select* from orders;\par
++----------+-------------+------------+\par
+| order_id | customer_id | order_date |\par
++----------+-------------+------------+\par
+|        1 |        7000 | 2016-04-18 |\par
+|        2 |        5000 | 2016-04-18 |\par
+|        3 |        8000 | 2016-04-19 |\par
+|        4 |        4000 | 2016-02-18 |\par
+|        5 |        NULL | 2016-02-18 |\par
++----------+-------------+------------+\par
+5 rows in set (0.00 sec)\par
+\par
+mysql> select* from customers;\par
++-------------+-----------+------------+-------------------+\par
+| customer_id | last_name | first_name | favorite_website  |\par
++-------------+-----------+------------+-------------------+\par
+|        4000 | Jackson   | Joe        | techonthenet.com  |\par
+|        5000 | Smith     | Jane       | digminecraft.com  |\par
+|        6000 | Ferguson  | Samantha   | bigactivities.com |\par
+|        7000 | Reynolds  | Allen      | checkyourmath.com |\par
+|        8000 | Anderson  | Paige      | NULL              |\par
+|        9000 | Johnson   | Derek      | KLFSpro.com       |\par
++-------------+-----------+------------+-------------------+\par
+6 rows in set (0.00 sec)\par
+\par
+mysql> select* from suppliers where state in('california','Texas','Arkansas');\par
++-------------+-------------------+------------------+------------+\par
+| supplier_id | supplier_name     | city             | state      |\par
++-------------+-------------------+------------------+------------+\par
+|         200 | Google            | Mountain View    | California |\par
+|         300 | Oracle            | Redwood City     | California |\par
+|         400 | Kimberly-Clark    | Irving           | Texas      |\par
+|         500 | Tyson Foods       | Springdale       | Arkansas   |\par
+|         700 | Dole Food Company | Westlake Village | California |\par
+|         900 | Electronic Arts   | Redwood City     | California |\par
++-------------+-------------------+------------------+------------+\par
+6 rows in set (0.01 sec)\par
+\par
+mysql> select* from suppliers where state=california;\par
+ERROR 1054 (42S22): Unknown column 'california' in 'where clause'\par
+mysql> select* from suppliers where state'=california';\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''=california'' at line 1\par
+mysql> select* from suppliers where state='california';\par
++-------------+-------------------+------------------+------------+\par
+| supplier_id | supplier_name     | city             | state      |\par
++-------------+-------------------+------------------+------------+\par
+|         200 | Google            | Mountain View    | California |\par
+|         300 | Oracle            | Redwood City     | California |\par
+|         700 | Dole Food Company | Westlake Village | California |\par
+|         900 | Electronic Arts   | Redwood City     | California |\par
++-------------+-------------------+------------------+------------+\par
+4 rows in set (0.01 sec)\par
+\par
+mysql> ^C\par
+mysql> select* from suppliers where state!='california';\par
++-------------+----------------+-------------+------------+\par
+| supplier_id | supplier_name  | city        | state      |\par
++-------------+----------------+-------------+------------+\par
+|         100 | Microsoft      | Redmond     | Washington |\par
+|         400 | Kimberly-Clark | Irving      | Texas      |\par
+|         500 | Tyson Foods    | Springdale  | Arkansas   |\par
+|         600 | SC Johnson     | Racine      | Wisconsin  |\par
+|         800 | Flowers Foods  | Thomasville | Georgia    |\par
++-------------+----------------+-------------+------------+\par
+5 rows in set (0.00 sec)\par
+\par
+mysql> select* from suppliers where state not in('california');\par
++-------------+----------------+-------------+------------+\par
+| supplier_id | supplier_name  | city        | state      |\par
++-------------+----------------+-------------+------------+\par
+|         100 | Microsoft      | Redmond     | Washington |\par
+|         400 | Kimberly-Clark | Irving      | Texas      |\par
+|         500 | Tyson Foods    | Springdale  | Arkansas   |\par
+|         600 | SC Johnson     | Racine      | Wisconsin  |\par
+|         800 | Flowers Foods  | Thomasville | Georgia    |\par
++-------------+----------------+-------------+------------+\par
+5 rows in set (0.00 sec)\par
+\par
+mysql> select order_id,customer_id from orders where order_date='2016-02-18';\par
++----------+-------------+\par
+| order_id | customer_id |\par
++----------+-------------+\par
+|        4 |        4000 |\par
+|        5 |        NULL |\par
++----------+-------------+\par
+2 rows in set (0.01 sec)\par
+\par
+mysql> select order_id,customer_id from orders where order_date in('2016-02-18');\par
++----------+-------------+\par
+| order_id | customer_id |\par
++----------+-------------+\par
+|        4 |        4000 |\par
+|        5 |        NULL |\par
++----------+-------------+\par
+2 rows in set (0.00 sec)\par
+\par
+mysql> select order_id,customer_id from orders where order_date between('2016-01-01','2016-02-16');\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1\par
+mysql> select order_id,customer_id from orders where order_date between('2016-01-01'and'2016-02-16');\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1\par
+mysql> select order_id,customer_id from orders where order_date between'2016-01-01'and'2016-02-16';\par
+Empty set (0.00 sec)\par
+\par
+mysql> select order_id,customer_id from orders where order_date between'2016-01-01'and'2016-02-29';\par
++----------+-------------+\par
+| order_id | customer_id |\par
++----------+-------------+\par
+|        4 |        4000 |\par
+|        5 |        NULL |\par
++----------+-------------+\par
+2 rows in set (0.00 sec)\par
+\par
+mysql>\par
+mysql>\par
+mysql> select order_id,customer_id from orders where order_date between'2016-01-01'and'2016-02-29';\par
++----------+-------------+\par
+| order_id | customer_id |\par
++----------+-------------+\par
+|        4 |        4000 |\par
+|        5 |        NULL |\par
++----------+-------------+\par
+2 rows in set (0.00 sec)\par
+\par
+mysql> select order_id,customer_id from orders where name in('Reynolds', or Anderson\par
+    -> select * from customers where last_name in('Reynolds',' Anderson');\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'or Anderson\par
+select * from customers where last_name in('Reynolds',' Anderson')' at line 1\par
+mysql> select * from customers where last_name in('Reynolds'and' Anderson');\par
++-------------+-----------+------------+-------------------+\par
+| customer_id | last_name | first_name | favorite_website  |\par
++-------------+-----------+------------+-------------------+\par
+|        4000 | Jackson   | Joe        | techonthenet.com  |\par
+|        5000 | Smith     | Jane       | digminecraft.com  |\par
+|        6000 | Ferguson  | Samantha   | bigactivities.com |\par
+|        7000 | Reynolds  | Allen      | checkyourmath.com |\par
+|        8000 | Anderson  | Paige      | NULL              |\par
+|        9000 | Johnson   | Derek      | KLFSpro.com       |\par
++-------------+-----------+------------+-------------------+\par
+6 rows in set, 7 warnings (0.01 sec)\par
+\par
+mysql> select * from customers where last_name in('Reynolds',' Anderson');\par
++-------------+-----------+------------+-------------------+\par
+| customer_id | last_name | first_name | favorite_website  |\par
++-------------+-----------+------------+-------------------+\par
+|        7000 | Reynolds  | Allen      | checkyourmath.com |\par
++-------------+-----------+------------+-------------------+\par
+1 row in set (0.00 sec)\par
+\par
+mysql> select * from customers where last_name in('Reynolds','Anderson');\par
++-------------+-----------+------------+-------------------+\par
+| customer_id | last_name | first_name | favorite_website  |\par
++-------------+-----------+------------+-------------------+\par
+|        7000 | Reynolds  | Allen      | checkyourmath.com |\par
+|        8000 | Anderson  | Paige      | NULL              |\par
++-------------+-----------+------------+-------------------+\par
+2 rows in set (0.00 sec)\par
+\par
+mysql> ^C\par
+mysql> select* from suppliers;\par
++-------------+-------------------+------------------+------------+\par
+| supplier_id | supplier_name     | city             | state      |\par
++-------------+-------------------+------------------+------------+\par
+|         100 | Microsoft         | Redmond          | Washington |\par
+|         200 | Google            | Mountain View    | California |\par
+|         300 | Oracle            | Redwood City     | California |\par
+|         400 | Kimberly-Clark    | Irving           | Texas      |\par
+|         500 | Tyson Foods       | Springdale       | Arkansas   |\par
+|         600 | SC Johnson        | Racine           | Wisconsin  |\par
+|         700 | Dole Food Company | Westlake Village | California |\par
+|         800 | Flowers Foods     | Thomasville      | Georgia    |\par
+|         900 | Electronic Arts   | Redwood City     | California |\par
++-------------+-------------------+------------------+------------+\par
+9 rows in set (0.00 sec)\par
+\par
+mysql> select* from suppliers where supplier_id between(200,700);\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1\par
+mysql> select* from suppliers where supplier_id between(200 and 700);\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1\par
+mysql> select* from suppliers where supplier_id between 200 and 700;\par
++-------------+-------------------+------------------+------------+\par
+| supplier_id | supplier_name     | city             | state      |\par
++-------------+-------------------+------------------+------------+\par
+|         200 | Google            | Mountain View    | California |\par
+|         300 | Oracle            | Redwood City     | California |\par
+|         400 | Kimberly-Clark    | Irving           | Texas      |\par
+|         500 | Tyson Foods       | Springdale       | Arkansas   |\par
+|         600 | SC Johnson        | Racine           | Wisconsin  |\par
+|         700 | Dole Food Company | Westlake Village | California |\par
++-------------+-------------------+------------------+------------+\par
+6 rows in set (0.00 sec)\par
+\par
+mysql> select* from customers;\par
++-------------+-----------+------------+-------------------+\par
+| customer_id | last_name | first_name | favorite_website  |\par
++-------------+-----------+------------+-------------------+\par
+|        4000 | Jackson   | Joe        | techonthenet.com  |\par
+|        5000 | Smith     | Jane       | digminecraft.com  |\par
+|        6000 | Ferguson  | Samantha   | bigactivities.com |\par
+|        7000 | Reynolds  | Allen      | checkyourmath.com |\par
+|        8000 | Anderson  | Paige      | NULL              |\par
+|        9000 | Johnson   | Derek      | KLFSpro.com       |\par
++-------------+-----------+------------+-------------------+\par
+6 rows in set (0.00 sec)\par
+\par
+mysql> select* from customers where favorite_website=NULL;\par
+Empty set (0.00 sec)\par
+\par
+mysql> select* from customers where favorite_website is null;\par
++-------------+-----------+------------+------------------+\par
+| customer_id | last_name | first_name | favorite_website |\par
++-------------+-----------+------------+------------------+\par
+|        8000 | Anderson  | Paige      | NULL             |\par
++-------------+-----------+------------+------------------+\par
+1 row in set (0.00 sec)\par
+\par
+mysql> select* from customers where favorite_website is not null;\par
++-------------+-----------+------------+-------------------+\par
+| customer_id | last_name | first_name | favorite_website  |\par
++-------------+-----------+------------+-------------------+\par
+|        4000 | Jackson   | Joe        | techonthenet.com  |\par
+|        5000 | Smith     | Jane       | digminecraft.com  |\par
+|        6000 | Ferguson  | Samantha   | bigactivities.com |\par
+|        7000 | Reynolds  | Allen      | checkyourmath.com |\par
+|        9000 | Johnson   | Derek      | KLFSpro.com       |\par
++-------------+-----------+------------+-------------------+\par
+5 rows in set (0.00 sec)\par
+\par
+mysql> select* from suppliers where supplier_id not between 200 and 700;\par
++-------------+-----------------+--------------+------------+\par
+| supplier_id | supplier_name   | city         | state      |\par
++-------------+-----------------+--------------+------------+\par
+|         100 | Microsoft       | Redmond      | Washington |\par
+|         800 | Flowers Foods   | Thomasville  | Georgia    |\par
+|         900 | Electronic Arts | Redwood City | California |\par
++-------------+-----------------+--------------+------------+\par
+3 rows in set (0.00 sec)\par
+\par
+mysql>\par
+}
+ 
